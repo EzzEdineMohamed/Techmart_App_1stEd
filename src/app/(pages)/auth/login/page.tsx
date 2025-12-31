@@ -46,7 +46,7 @@ export default function LoginForm() {
         if (response?.error === "CredentialsSignin") {
           toast.error("This email is not registered or password is incorrect!");
         } else {
-          toast.error(response?.error || "Login failed!");
+          toast.error(response?.error);
         }
       }
     } catch (err) {
