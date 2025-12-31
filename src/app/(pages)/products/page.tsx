@@ -2,7 +2,7 @@
 import { ProductCard } from "@/Components";
 import { Product } from "@/interfaces";
 
-export default async function products() {
+export default async function productspage() {
   async function getProductsFromApi(): Promise<Product[]> {
     const response = await fetch(
       "https://ecommerce.routemisr.com/api/v1/products/"
