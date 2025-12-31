@@ -7,7 +7,6 @@ import { Minus, Plus, ShoppingBag, Trash2 } from "lucide-react";
 import LoadingSpinnerTwo from "../Shared/LoadingSpinnerTwo";
 import CartItem from "./cartitem";
 import { CartResponse } from "@/interfaces/CartResponse";
-import { useSession } from "next-auth/react";
 
 type CartWrapperProps = {
   cartResponse: CartResponse;
@@ -16,7 +15,6 @@ type CartWrapperProps = {
 export default function CartWrapper({ cartResponse }: CartWrapperProps) {
   const [InnerCartResponse, setInnerCartResponse] = useState(cartResponse);
   const [isClearing, setisclearing] = useState(false);
-  const { data: session } = useSession();
 
   async function clearCart() {
     setisclearing(true);
@@ -24,7 +22,7 @@ export default function CartWrapper({ cartResponse }: CartWrapperProps) {
       "https://ecommerce.routemisr.com/api/v1/cart",
       {
         headers: {
-          token: session?.user.token,
+          token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MzczN2ExMjAzN2YwZDI5MDIxYjdjNiIsIm5hbWUiOiJFenpFZGluZSBNb2hhbWVkIE1vc3RhZmEiLCJyb2xlIjoidXNlciIsImlhdCI6MTc2NjY4MjQ2MCwiZXhwIjoxNzc0NDU4NDYwfQ.crPRXV_utx1zPoqM_4Mfr9WfhGMfCrQCKU8HsqXRsqE",
         },
         method: "delete",
       }
@@ -40,7 +38,7 @@ export default function CartWrapper({ cartResponse }: CartWrapperProps) {
       "https://ecommerce.routemisr.com/api/v1/cart/" + cartItemId,
       {
         headers: {
-          token: session?.user.token,
+          token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MzczN2ExMjAzN2YwZDI5MDIxYjdjNiIsIm5hbWUiOiJFenpFZGluZSBNb2hhbWVkIE1vc3RhZmEiLCJyb2xlIjoidXNlciIsImlhdCI6MTc2NjY4MjQ2MCwiZXhwIjoxNzc0NDU4NDYwfQ.crPRXV_utx1zPoqM_4Mfr9WfhGMfCrQCKU8HsqXRsqE",
         },
         method: "delete",
       }
@@ -57,7 +55,7 @@ export default function CartWrapper({ cartResponse }: CartWrapperProps) {
       "https://ecommerce.routemisr.com/api/v1/cart/" + cartItemId,
       {
         headers: {
-          token: session?.user.token,
+          token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MzczN2ExMjAzN2YwZDI5MDIxYjdjNiIsIm5hbWUiOiJFenpFZGluZSBNb2hhbWVkIE1vc3RhZmEiLCJyb2xlIjoidXNlciIsImlhdCI6MTc2NjY4MjQ2MCwiZXhwIjoxNzc0NDU4NDYwfQ.crPRXV_utx1zPoqM_4Mfr9WfhGMfCrQCKU8HsqXRsqE",
           "content-type": "application/json",
         },
         method: "put",
